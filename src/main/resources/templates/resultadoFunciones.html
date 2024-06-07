@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/plantilla :: head">
+<meta charset="UTF-8"/>
+<title>Listar Funciones</title>
+</head>
+<body>
+	<header th:replace="layout/plantilla :: header"></header>
+        <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">Guardar Resultados</h5>
+                        </div>
+                        <section th:fragment="formularioCliente">
+                            <form th:action="@{/tareas/funcionesCorrespondencia/save}"
+                                method="POST" class="was-validated">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="mp">Tamaño Memoria Principal:</label>
+                                        <input type="text" name="mp" 
+                                            class="form-control"  th:value="${mp}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="b">Palabras por bloque:</label>
+                                        <input type="text" name="b" th:value="${b}"
+                                            class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="n">Tamaño de palabra:</label>
+                                        <input type="text" name="n" th:value="${n}"
+                                            class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="l">Longitud de Dirección:</label>
+                                        <input type="text" name="l" th:value="${l}"
+                                            class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="NL">N:</label>
+                                        <input type="text" name="NL" th:value="${NL}"
+                                            class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BL">B:</label>
+                                        <input type="text" name="BL" th:value="${BL}"
+                                            class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mc">Tamaño Memoria Caché:</label>
+                                        <input type="text" name="mc" th:value="${mc}"
+                                            class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="b_celdas">Líneas de b-celdas:</label>
+                                        <input type="text" name="b_celdas" th:value="${b_celdas}"
+                                            class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="b_vias">Conjuntos de j-vías:</label>
+                                        <input type="text" name="b_vias" th:value="${b_vias}"
+                                            class="form-control"  />
+                                    </div>
+                                
+                                    <div th:if="${asociativa != null and directa != null and aconjunto != null}">
+                                        <div class="container">
+                                            <div class="form-group">
+                                                    <label>FC. Asociativa:</label> 
+                                                    <input type="hidden" name="asociativa" th:value="${asociativa}"  />
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" name="etiqueta" th:value="${etiqueta}"  >
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" name="palabra" th:value="${palabra}"  >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label>FC. Directa:</label> 
+                                                    <input type="hidden" name="directa" th:value="${directa}"   />
+                                                    
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" name="etiquetaD" th:value="${etiquetaD}"  >
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" name="linea" th:value="${linea}"  >
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" th:value="${palabra}"  >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label>FC. Asociativa por conjuntos:</label> 
+                                                    <input type="hidden"  name="aconjunto" th:value="${aconjunto}"   />
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" name="etiquetaC" th:value="${etiquetaC}"  >
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" name="conjuntos" th:value="${conjuntos}"  >
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" th:value="${palabra}"  >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" step="any">Guardar</button>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

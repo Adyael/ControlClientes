@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Botones Calcular</title>
+    </head>
+
+    <body>
+        <section th:fragment="botonesCalcular" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a th:href="@{/tareas/funcionesCorrespondencia/calcular}" class="btn btn-primary btn-block" data-toggle="modal"
+                            data-target="#calcularNuevaFuncion">
+                            <i class="fas fa-plus"></i> Calcular Función 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

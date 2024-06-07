@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Agregar Cliente</title>
+    </head>
+
+    <body>
+        <section th:fragment="calcularNuevaFuncion">
+            <div id="calcularNuevaFuncion" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">Calcular</h5>
+                            <button class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <section th:fragment="formularioCliente">
+                        <form th:action="@{/tareas/funcionesCorrespondencia/calcular}"
+                            method="POST" class="was-validated">
+                            <div class="modal-body">
+                                <div class="form-group ">
+                                    <label for="mp">Tamaño Memoria Principal:</label>
+                                    <input type="text" name="mp" id="mp" 
+                                        class="form-control numero" />
+                                </div>
+                                <div class="form-group ">
+                                    <label for="n">Tamaño de palabra:</label>
+                                    <input type="text" name="n" required="true"
+                                        class="form-control numero" />
+                                </div>
+                                <div class="form-group ">
+                                    <label for="l">Longitud de Dirección:</label>
+                                    <input type="text" name="l"
+                                        class="form-control numero" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="b">Palabras por bloque:</label>
+                                    <input type="text" name="b"
+                                        class="form-control numero"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mc">Tamaño Memoria Caché:</label>
+                                    <input type="text" name="mc" 
+                                        class="form-control numero"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="b_celdas">Líneas de b-celdas:</label>
+                                    <input type="text" name="b_celdas" 
+                                        class="form-control numero" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="b_vias">Conjuntos de j-vías:</label>
+                                    <input type="text" name="b_vias" 
+                                        class="form-control numero" required="true"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" step="any">Calcular</button>
+                            </div>
+                        </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
